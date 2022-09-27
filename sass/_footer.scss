@@ -1,0 +1,7 @@
+.attribution {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 1115px) {
+        display: block;
+    }
+}

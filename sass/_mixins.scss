@@ -1,0 +1,69 @@
+@use 'variables' as v;
+@mixin modal-background {
+    display: none;
+    background-color: v.$Black-modal;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+@mixin image-btn ($top, $left, $showDesktop) {
+    background-color: v.$White;
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+    border-radius: 50%;
+    //Al tener position absolute, se posicionará en el elemento que contenga position relative, es este caso el image-container
+    position: absolute;
+    top: $top;
+    left: $left;
+    &:hover {
+        cursor: pointer;
+        border: 2px solid v.$Orange;
+    }
+    @media (min-width: 1115px) {
+        @if ($showDesktop==true) {
+            display: block;
+        }
+        @else {
+            display: none;
+        }
+    }
+}
+
+@mixin changeNumber($pv, $ph) {
+    width: 25px;
+    padding: $pv $ph;
+    height: 100%;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin button {
+    margin-top: 20px;
+    width: 100%;
+    height: 57px;
+    padding: 10px;
+    background-color: v.$Orange;
+    border: none;
+    border-radius: 10px;
+    color: v.$White;
+    font-size: 0.9em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+    &:active {
+        opacity: 0.9;
+    }
+}
